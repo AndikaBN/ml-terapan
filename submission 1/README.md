@@ -1,79 +1,127 @@
 # Laporan Proyek Machine Learning - Andika Bintang Nursalih
 
-## 1. Domain Proyek
+## 1. Domain Proyek  
 
-Proyek ini bertujuan untuk mengembangkan model machine learning dalam mendeteksi kanker payudara. Deteksi dini kanker payudara sangat penting karena dapat meningkatkan tingkat kelangsungan hidup pasien melalui penanganan dan perawatan yang cepat. Melalui pemanfaatan data morfologi dan tekstur sel, proyek ini mencoba mengklasifikasikan tumor sebagai benign atau malignant dengan akurasi tinggi.
+Kanker payudara merupakan salah satu penyakit yang dapat berakibat fatal, terutama jika tidak terdeteksi sejak dini. Penyakit ini terjadi akibat pertumbuhan sel abnormal yang berasal dari kelenjar susu di payudara. Perkembangannya disebabkan oleh pembelahan sel yang lebih cepat dari normal, di mana sel-sel lama pada duktus lactiferi tidak mati dan terus digantikan oleh sel-sel baru yang tumbuh secara tidak terkendali. Akibatnya, sel-sel ini dapat menginvasi jaringan sehat di sekitarnya [[1](http://repository.uhn.ac.id/handle/123456789/4689)].  
 
-**Alasan Masalah:**  
-- Kanker payudara adalah salah satu penyebab kematian tertinggi pada wanita di dunia.  
-- Deteksi dini dengan teknologi cerdas dapat membantu dokter membuat keputusan terapi yang lebih tepat.
+Menurut International Agency for Research on Cancer (IARC), jumlah kasus kanker di dunia terus meningkat setiap tahunnya. Pada tahun 2008, terdapat 12,7 juta kasus kanker yang dilaporkan, dan angka ini terus bertambah hingga mencapai 18,1 juta kasus pada tahun 2018 [[2](http://repository.uhn.ac.id/handle/123456789/4689)]. Tidak hanya jumlah kasus, angka kematian akibat kanker juga meningkat dari 7,6 juta pada tahun 2008 menjadi 9,6 juta pada tahun 2018.  
 
-**Referensi Terkait:**  
-- [Breast Cancer Detection Research](https://www.sciencedirect.com/science/article/abs/pii/S0933365722000410) – Penelitian tentang penerapan machine learning dalam diagnosis kanker payudara.  
-- [Early Detection of Breast Cancer](https://repository.uhn.ac.id/handle/123456789/4689) – Studi tentang pentingnya deteksi dini dan pengaruhnya terhadap kesembuhan pasien.
+Khusus untuk kanker payudara, data dari IARC menunjukkan bahwa penyakit ini banyak menyerang wanita, dengan tingkat kematian mencapai 627.000 kasus di seluruh dunia pada tahun 2018. Di Indonesia, berdasarkan data Riset Kesehatan Dasar (RISKESDAS) tahun 2018, insiden kanker payudara tercatat sebesar 42,1 per 100.000 penduduk dengan angka kematian rata-rata 17 per 100.000 penduduk. Angka ini meningkat dibandingkan tahun 2012, di mana insiden kanker payudara hanya sebesar 12,1 per 100.000 penduduk dengan total kematian 522.000 jiwa [[3](http://repo.poltekkesbandung.ac.id/1505/)].  
+
+Meningkatnya angka kejadian kanker payudara menunjukkan pentingnya kesadaran akan deteksi dini dan pengobatan yang lebih efektif. Oleh karena itu, pengembangan model machine learning menjadi solusi yang dapat membantu dokter dalam mengidentifikasi kanker payudara lebih awal. Model ini bertujuan untuk memprediksi apakah seseorang yang terdiagnosis kanker payudara memiliki jenis kanker yang ganas atau jinak. Dengan adanya model ini, diharapkan proses diagnosis menjadi lebih cepat dan akurat, sehingga memungkinkan intervensi medis lebih dini.  
+
+### **Referensi Terkait:**  
+- [Breast Cancer Detection Research](https://www.sciencedirect.com/science/article/abs/pii/S0933365722000410) – Studi tentang penerapan machine learning dalam diagnosis kanker payudara.  
+- [Early Detection of Breast Cancer](https://repository.uhn.ac.id/handle/123456789/4689) – Penelitian mengenai pentingnya deteksi dini dan pengaruhnya terhadap tingkat kesembuhan pasien.
+
+--- 
+
+## Business Understanding  
+
+---  
+### **Problem Statements**  
+Berdasarkan latar belakang di atas, berikut ini rumusan masalah yang dapat diselesaikan pada proyek ini:  
+
+- Bagaimana cara melakukan pra-pemrosesan pada data penyakit kanker payudara yang akan digunakan untuk membuat model yang baik?  
+- Bagaimana cara membuat model untuk memprediksi penyakit kanker payudara ganas atau jinak pada manusia dengan menggunakan machine learning?  
+- Bagaimana cara memilih/membuat algoritma yang mampu menghasilkan nilai akurasi di atas 90%?  
+
+### **Goals**  
+- Melakukan pra-pemrosesan dengan baik agar dapat digunakan dalam pembuatan model.  
+- Mengetahui cara membuat model machine learning untuk memprediksi penyakit kanker payudara ganas dan jinak pada wanita.  
+- Membuat model machine learning dengan nilai akurasi yang mencapai 90%.  
+
+### **Solution Statements**  
+Solusi yang dapat dilakukan untuk memenuhi tujuan dari proyek ini di antaranya:  
+* Untuk pra-pemrosesan data dapat dilakukan beberapa teknik, di antaranya:  
+    * Melakukan _drop_ kolom pada kolom ID.  
+    * Mengatasi masalah data yang kosong dengan melakukan pengecekan terlebih dahulu lalu menggantinya dengan nilai rata-rata atau median (dalam proyek ini, tidak ditemukan data yang kosong).  
+    * Melakukan encoding terhadap kolom yang bertipe _object_.  
+    * Membagi dataset menjadi dua bagian dengan rasio 80% untuk data latih dan 20% untuk data uji.  
+    * Melakukan _Standard Scaler_.  
+
+* Untuk pembuatan model dipilih penggunaan model dengan algoritma Random Forest dan K-Nearest Neighbor. Algoritma tersebut dipilih karena mudah digunakan dan cocok untuk kasus ini. Berikut cara kerja, kelebihan, dan kekurangan dari kedua algoritma:  
+    * **Cara kerja Algoritma Random Forest** [[4]](https://repository.usd.ac.id/35513/):  
+        * Memilih k sampel dataset secara acak dengan pengembalian.  
+        * Menggunakan dataset untuk membangun _decision tree_ ke-i.  
+        * Mengulangi langkah di atas sebanyak k kali.  
+    * **Kelebihan dan kekurangan Algoritma Random Forest** [[5]](https://eprints.umm.ac.id/39299/):  
+        * **Kelebihan:** Dapat mengatasi _noise_ dan _missing value_ serta mampu menangani data dalam jumlah besar.  
+        * **Kekurangan:** Interpretasi sulit dan memerlukan tuning model yang tepat.  
+    * **Cara kerja Algoritma K-Nearest Neighbor** [[6]](https://publikasi.dinus.ac.id/index.php/jais/article/view/1189/):  
+        * Menentukan jumlah tetangga terdekat K.  
+        * Menghitung jarak dokumen _testing_ ke dokumen _training_.  
+        * Mengurutkan data berdasarkan jarak Euclidean terkecil.  
+        * Menentukan kelompok _testing_ berdasarkan label pada K.  
+    * **Kelebihan dan kekurangan Algoritma K-Nearest Neighbor** [[7]](https://simdos.unud.ac.id/uploads/file_penelitian_1_dir/721bdb509a6f0bb9ccca6d7374b86759.pdf):  
+        * **Kelebihan:** Tangguh terhadap _training_ data yang _noisy_ dan efektif jika data latihnya besar.  
+        * **Kekurangan:**  
+            * Perlu menentukan nilai parameter K.  
+            * Pemilihan jarak dan atribut yang optimal tidak selalu jelas.  
+            * Biaya komputasi tinggi karena perlu menghitung jarak setiap sampel uji ke seluruh sampel latih.
 
 ---
 
-## 2. Business Understanding
-
-### Problem Statements
-- **Masalah 1:** Bagaimana cara mengklasifikasikan tumor payudara sebagai benign atau malignant dengan akurasi tinggi?
-- **Masalah 2:** Bagaimana membandingkan performa berbagai algoritma machine learning untuk memilih model terbaik yang mendukung keputusan klinis?
-
-### Goals
-- **Goal 1:** Menghasilkan model klasifikasi yang memiliki nilai evaluasi (accuracy, precision, recall, F1-score) optimal.
-- **Goal 2:** Menyusun proses data preparation yang sistematis guna menghasilkan data yang berkualitas untuk training.
-- **Goal 3:** Menyediakan solusi yang dapat diukur secara kuantitatif untuk mendukung proses diagnosis kanker payudara.
-
-### Solution Statements
-- **Solution 1:** Mengimplementasikan dan membandingkan tiga model klasifikasi (Random Forest, KNN, dan Boosting [AdaBoost]) untuk mengidentifikasi tumor.
-- **Solution 2:** Melakukan perbaikan (improvement) dengan hyperparameter tuning pada setiap model untuk mengoptimalkan performa.
-- **Solution 3:** Menggunakan evaluasi berbasis metrik (accuracy, precision, recall, dan F1-score) untuk mengukur kinerja dan memilih model terbaik.
-
+# Data Understanding
 ---
+![kaggle](https://i.postimg.cc/2SyPvwxP/image.png)
+Data pada project ini menggunakan data yang bersumber pada sebuah situs kaggle, dimana fokus pada data tersebut menjelaskan faktor-faktor yang akan mempengaruhi sebuah penyakit kanker payudara bersifat ganas dan jinak.
+Informasi dataset dapat dilihat pada tabel dibawah ini :
+Jenis | Keterangan
+--- | ---
+Sumber | [Kaggle Dataset : Cancer Breast Dataset](https://www.kaggle.com/datasets/yasserh/breast-cancer-dataset)
+Lisensi | CC0: Public Domain
+Kategori | Cancer, Women, Healthcare
+Jenis dan Ukuran Berkas | CSV (124.57 kB)
 
-## 3. Data Understanding
+Pada berkas yang diunduh yakni cancer-breast.csv berisi 569 rows × 32 columns. Kolom-kolom tersebut terdiri dari 1 buah kolom bertipe objek dan 31 buah kolom bertipe numerik (tipe data float64). Untuk penjelasan mengenai variabel-variable pada dataset cancer breast ini dapat dilihat sebagai berikut:
+- **id** merupakan parameter bernilai unique. Parameter ini tidak penting untuk dimasukkan kedalam model, oleh karena itu parameter ini di drop.
+- **diagnosis** merupakan fitur target pada dataset ini, bertipe object yang terdiri dari (M,B). Dimana data tersebut menjelaskan diagnosis kanker bersifat Ganas (M) atau Jinak (B)
+- **radius_mean** merupakan fitur yg merepresentasikan nilai rata-rata jarak dari pusat ke titik pada keliling sekitar payudara/benjolan
+- **texture_mean** merupakan fitur yg merepresentasikan standar deviasi nilai skala abu-abu atau rata-rata Tekstur Permukaan
+- **perimeter_mean** merupakan rata-rata keliling
+- **area_mean** merupakan fitur yg merepresentasikan Rata-rata Luas Lobes
+- **smoothness_mean** merupakan fitur yg merepresentasikan Rata-rata Tingkat Kehalusan
+- **compactness_mean** merupakan fitur yg merepresentasikan Rata-rata Kekompakan atau keliling² / luas — 1.0
+- **concavity_mean** merupakan fitur yg merepresentasikan rata-rata kecekungan atau keparahan bagian cekung dari contour
+- **concave points_mean** merupakan fitur yg merepresentasikan rata-rata titik cekung atau jumlah bagian cekung dari contour
+- **symmetry_mean** merupakan fitur yg merepresentasikan rata-rata Simetri
+- **fractal_dimension_mean** merupakan fitur yg merepresentasikan rata-rata dimensi fraktal atau "*coastline approximation* — 1"
+- **radius_se** merupakan fitur yg merepresentasikan radius standard error
+- **texture_se** merupakan fitur yg merepresentasikan texture standard error
+- **perimeter_se** merupakan fitur yg merepresentasikan perimeter standard error 
+- **area_se** merupakan fitur yg merepresentasikan luas standar error
+- **smoothness_se** merupakan fitur yg merepresentasikan smoothness standard error
+- **compactness_se** merupakan fitur yg merepresentasikan compactness standard error
+- **concavity_se** merupakan fitur yg merepresentasikan concavity standard error
+- **concave points_se** merupakan fitur yg merepresentasikan titik cekung standard error
+- **symmetry_se** merupakan fitur yg merepresentasikan symmetry standard error
+- **fractal_dimension_se** merupakan fitur yg merepresentasikan fractal dimension standard error
+- **radius_worst** merupakan fitur yg merepresentasikan radius terendah
+- **texture_worst** merupakan fitur yg merepresentasikan texture terendah
+- **perimeter_worst** merupakan fitur yg merepresentasikan perimeter terendah
+- **area_worst** merupakan fitur yg merepresentasikan area terendah
+- **smoothness_worst** merupakan fitur yg merepresentasikan tingkat kehalusan terendah
+- **compactness_worst** merupakan fitur yg merepresentasikan compactness terendah
+- **concavity_worst** merupakan fitur yg merepresentasikan kecekungan terendah
+- **concave points_worst** merupakan fitur yg merepresentasikan titik cekung terendah
+- **symmetry_worst** merupakan fitur yg merepresentasikan symmetry terendah
+- **fractal_dimension_worst** merupakan fitur yg merepresentasikan fractional dimensi terendah
 
-Dataset yang digunakan adalah **Breast Cancer Dataset** yang berisi data numerik mengenai karakteristik sel payudara. Dataset ini memiliki informasi seperti:
+Berikut beberapa tahapan sebelum visualisasi data pada data preparation sebagai berikut:
+- Meload Dataset ke dalam sebuah Dataframe menggunakan pandas
+- ``` df.info()``` digunakan untuk mengecek tipe kolom pada dataset
+- ```df.isna().sum()``` digunakan untuk mengecek apakah ada kolom yg kosong, pada dataset ini nilai kosong tidak ditemukan
+- ```df.describe()``` digunakan utk mendapatkan info mengenai dataset terhadap nilai rata-rata, median, banyaknya data, nilai Q1 hingga Q3 dan lain-lain.
 
-- **Jumlah Data:** Misalnya, 569 sampel.
-- **Kondisi Data:** Terdiri dari fitur numerik seperti `radius_mean`, `texture_mean`, `perimeter_mean`, `area_mean`, dll., serta variabel target `diagnosis` (B untuk benign dan M untuk malignant).
-
-**Sumber Data:**  
-Dataset diunduh dari:  
-[Breast Cancer Dataset](https://www.kaggle.com/datasets/yasserh/breast-cancer-dataset?resource=download)
-
-### Variabel-Fitur Utama
-- **diagnosis:** Label untuk mengidentifikasi tumor (B = Benign, M = Malignant)
-- **Fitur Numerik:**  
-  - `radius_mean`, `texture_mean`, `perimeter_mean`, `area_mean`, `smoothness_mean`, dan seterusnya.
-
-### Kode Eksplorasi Data (EDA)
-
-```python
-# Mount Google Drive dan import library
-from google.colab import drive
-drive.mount('/content/drive/')
-
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-%matplotlib inline
-
-# Membaca dataset
-data_path = '/content/drive/MyDrive/Dataset/breast-cancer.csv'
-df = pd.read_csv(data_path)
-
-# Melihat data awal, informasi, dan statistik deskriptif
-print(df.head())
-print(df.info())
-print(df.describe())
-
-# Cek missing values dan ukuran dataset
-print("Missing values per kolom:\n", df.isna().sum())
-print("Ukuran dataset:", df.shape)
-```
+Berikut beberapa tahapan visualisasi data pada data preparation:
+- Pertama membagi dataset kedalam 2 bentuk variable, yaitu variable untuk kolom tipe numerik dan variable kolom untuk tipe object
+- Kemudian melakukan visualisasi distribusi categorial, dimana ini digunakan untuk menghitung jumlah sample Kanker Ganas/positif (M) dan kanker Jinak/negatif (B). pada project ini terdapat 357 jumlah data sampel kanker jinak (B) dan 212 data sample kanker ganas (M)
+![img](https://i.postimg.cc/SRf5411z/image.png)
+- lalu melakukan visualisasi distribusi numerik, yg dapat dilihat lebih rinci sebagai berikut:
+![img](https://i.postimg.cc/Bvyf7zRS/image.png)
+- Selanjutnya visualisasi dilakukan untuk mengetahui korelasi antar fitur yg terdapat pada dataset, untuk selengkapnya sebagai berikut:
+![img](https://i.ibb.co/2gg4qvP/image.png)
 
 ---
 
