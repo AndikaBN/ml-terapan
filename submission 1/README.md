@@ -215,23 +215,22 @@ Evaluasi model dilakukan dengan menggunakan beberapa metrik utama:
 - **Accuracy:**  
   Mengukur persentase prediksi yang benar.  
   **Formula:**  
-  $$ \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} $$
+  `Accuracy = (TP + TN) / (TP + TN + FP + FN)`
 
 - **Precision:**  
   Mengukur seberapa tepat prediksi positif.  
   **Formula:**  
-  $$ \text{Precision} = \frac{TP}{TP + FP} $$
+  `Precision = TP / (TP + FP)`
 
 - **Recall:**  
   Mengukur kemampuan model menangkap semua sampel positif.  
   **Formula:**  
-  $$ \text{Recall} = \frac{TP}{TP + FN} $$
+  `Recall = TP / (TP + FN)`
 
 - **F1-Score:**  
   Rata-rata harmonis dari precision dan recall.  
   **Formula:**  
-  $$ F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} $$
-
+  `F1 = 2 * (Precision * Recall) / (Precision + Recall)`
 
 ### Hasil Evaluasi
 
