@@ -14,46 +14,16 @@ Meningkatnya angka kejadian kanker payudara menunjukkan pentingnya kesadaran aka
 
 ### Problem Statements
 
-Berdasarkan latar belakang di atas, berikut ini rumusan masalah yang dapat diselesaikan pada proyek ini:  
-
-- Bagaimana cara melakukan pra-pemrosesan pada data penyakit kanker payudara yang akan digunakan untuk membuat model yang baik?  
-- Bagaimana cara membuat model untuk memprediksi penyakit kanker payudara ganas atau jinak pada manusia dengan menggunakan machine learning?  
-- Bagaimana cara memilih/membuat algoritma yang mampu menghasilkan nilai akurasi di atas 90%?  
+Di sektor kesehatan, terutama dalam diagnosis kanker payudara, deteksi dini sangat penting untuk mengurangi angka kematian dan meningkatkan efektivitas perawatan. Namun, proses diagnosis manual sering kali memakan waktu dan berpotensi mengalami kesalahan, yang dapat menghambat penanganan tepat waktu. Oleh karena itu, masalah bisnis yang ingin diselesaikan adalah bagaimana memanfaatkan teknologi machine learning untuk membantu dokter mendiagnosis kanker payudara secara cepat dan akurat, sehingga proses perawatan dapat dioptimalkan dan biaya operasional berkurang.
 
 ### Goals
 
-- Melakukan pra-pemrosesan dengan baik agar dapat digunakan dalam pembuatan model.  
-- Mengetahui cara membuat model machine learning untuk memprediksi penyakit kanker payudara ganas dan jinak pada wanita.  
-- Membuat model machine learning dengan nilai akurasi yang mencapai 90%.  
+- Efisiensi Diagnosis: Mengembangkan model yang mampu memberikan prediksi diagnosis dengan akurasi di atas 90%, sehingga proses identifikasi kanker dapat dilakukan dengan cepat.
+- Peningkatan Kualitas Perawatan: Memastikan bahwa model dapat mengurangi kesalahan diagnosis, mendukung keputusan medis, dan pada akhirnya meningkatkan outcome perawatan pasien.
+- Optimalisasi Biaya Operasional: Mengurangi ketergantungan pada metode diagnosis manual yang memakan waktu dan sumber daya, sehingga dapat menekan biaya operasional di fasilitas kesehatan.
 
     ### Solution statements
-    Solusi yang dapat dilakukan untuk memenuhi tujuan dari proyek ini di antaranya:  
-    * Untuk pra-pemrosesan data dapat dilakukan beberapa teknik, di antaranya:  
-    * Melakukan _drop_ kolom pada kolom ID.  
-    * Mengatasi masalah data yang kosong dengan melakukan pengecekan terlebih dahulu lalu menggantinya dengan nilai rata-rata atau median (dalam proyek ini, tidak ditemukan data yang kosong).  
-    * Melakukan encoding terhadap kolom yang bertipe _object_.  
-    * Membagi dataset menjadi dua bagian dengan rasio 80% untuk data latih dan 20% untuk data uji.  
-    * Melakukan _Standard Scaler_.  
-
-    * Untuk pembuatan model dipilih penggunaan model dengan algoritma Random Forest dan K-Nearest Neighbor. Algoritma tersebut dipilih karena mudah digunakan dan cocok untuk kasus ini. Berikut cara kerja, kelebihan, dan kekurangan dari kedua algoritma:  
-    * **Cara kerja Algoritma Random Forest** [[4]](https://repository.usd.ac.id/35513/):  
-        * Memilih k sampel dataset secara acak dengan pengembalian.  
-        * Menggunakan dataset untuk membangun _decision tree_ ke-i.  
-        * Mengulangi langkah di atas sebanyak k kali.  
-    * **Kelebihan dan kekurangan Algoritma Random Forest** [[5]](https://eprints.umm.ac.id/39299/):  
-        * **Kelebihan:** Dapat mengatasi _noise_ dan _missing value_ serta mampu menangani data dalam jumlah besar.  
-        * **Kekurangan:** Interpretasi sulit dan memerlukan tuning model yang tepat.  
-    * **Cara kerja Algoritma K-Nearest Neighbor** [[6]](https://publikasi.dinus.ac.id/index.php/jais/article/view/1189/):  
-        * Menentukan jumlah tetangga terdekat K.  
-        * Menghitung jarak dokumen _testing_ ke dokumen _training_.  
-        * Mengurutkan data berdasarkan jarak Euclidean terkecil.  
-        * Menentukan kelompok _testing_ berdasarkan label pada K.  
-    * **Kelebihan dan kekurangan Algoritma K-Nearest Neighbor** [[7]](https://simdos.unud.ac.id/uploads/file_penelitian_1_dir/721bdb509a6f0bb9ccca6d7374b86759.pdf):  
-        * **Kelebihan:** Tangguh terhadap _training_ data yang _noisy_ dan efektif jika data latihnya besar.  
-        * **Kekurangan:**  
-            * Perlu menentukan nilai parameter K.  
-            * Pemilihan jarak dan atribut yang optimal tidak selalu jelas.  
-            * Biaya komputasi tinggi karena perlu menghitung jarak setiap sampel uji ke seluruh sampel latih.
+    Solusi yang diusulkan adalah membangun beberapa model klasifikasi menggunakan algoritma seperti Random Forest, K-Nearest Neighbors (KNN), dan AdaBoost. Model-model tersebut akan dievaluasi dan dibandingkan berdasarkan metrik seperti akurasi, f1-score, precision, dan recall. Hasil evaluasi ini kemudian digunakan untuk memilih model terbaik yang tidak hanya unggul secara teknis tetapi juga memiliki dampak positif terhadap peningkatan proses diagnosis dan efektivitas layanan kesehatan.
 
 
 ## Data Understanding
@@ -240,27 +210,20 @@ plt.show()
 Setelah pelatihan awal, dilakukan hyperparameter tuning untuk setiap model guna mendapatkan performa optimal. Perbandingan metrik evaluasi kemudian digunakan untuk memilih model terbaik.
 
 ## Evaluation
-Pada proyek ini, model yang dikembangkan adalah kasus klasifikasi dan menggunakan metriks akurasi, *f1-score*, *recall* dan *precision*. Berikut hasil pengukuran model yang dipilih yaitu model yang menggunakan algoritma Random Forest metriks akurasi, _f1-score_, _recall_ dan _precision_.
-![RF](https://i.postimg.cc/d1tp88yV/Cuplikan-layar-2025-03-01-151435.png)
-* Akurasi
-    Akurasi merupakan metrik untuk menghitung persentase dari total data yang diidentifikasi dan dinilai benar. Rumus akurasi sebagai berikut:
-    ![Image of Dataset](https://i.postimg.cc/NFx1VcgJ/akurasi.png)
-    * _True Positive_ (TP):
-    Kasus dimana model merupakan data positif yang diprediksi benar. Contohnya, pasien menderita kanker (class 1) dan dari model yang dibuat memprediksi pasien tersebut menderita kanker (class 1).
-    * _True Negative_ (TN):
-    Kasus dimana model merupakan data negatif yang diprediksi benar. Contohnya, pasien tidak menderita kanker (class 2) dan dari model yang dibuat memprediksi pasien tersebut tidak menderita kanker (class 2).
-    * _False Positive_ (FP) - **Type I Error** :
-    Kasus dimana model merupakan data negatif namun diprediksi sebagai data positif. Contohnya, pasien tidak menderita kanker (class 2) tetapi dari model yang telah memprediksi pasien tersebut menderita kanker (class 1).
-    * _False Negative_ (FN) - **Type II Error** :
-    Kasus dimana model merupakan data negatif namun diprediksi sebagai data positif. Contohnya, pasien tidak menderita kanker (class 2) tetapi dari model yang telah memprediksi pasien tersebut menderita kanker (class 1).
-* _Precision_
-    _Precision_ merupakan metrik untuk memprediksi benar positif dari keseluruhan hasil yang diprediksi positf. Rumus _precision_ sebagai berikut:
-    ![Image of Dataset](https://i.postimg.cc/mzwZLjdM/precision.png)
-* _Recall_
-    _Recall_ merupakan metrik untuk memprediksi benar positif dibandingkan dengan keseluruhan data yang benar positif. Rumus _precision_ sebagai berikut:
-    ![Image of Dataset](https://i.postimg.cc/K38GRTVW/recall.png)
-* _f1-score_
-    _f1-score_ merupakan metrik untuk perbandingan rata-rata precision dan recall yang dibobotkan. Rumus _f1-score_ sebagai berikut:
-    ![Image of Dataset](https://i.postimg.cc/Fzm9ztjQ/f1-score.png)
+Setelah melakukan pelatihan dan evaluasi, diperoleh hasil metrik sebagai berikut:
+- Random Forest: Akurasi 97,37%, dengan nilai f1-score, precision, dan recall yang tinggi untuk kedua kelas.
+- KNN dan Boosting: Performa mendekati model Random Forest, namun terdapat perbedaan kecil pada metrik recall.
 
+Komparasi metrik ini menunjukkan bahwa model Random Forest memberikan performa yang konsisten dan unggul di hampir semua aspek evaluasi, sehingga dipilih sebagai model terbaik.
+
+### Hubungan dengan Business Understanding  
+Evaluasi model mengkonfirmasi bahwa solusi yang diusulkan telah menjawab problem statement dan mencapai goals yang diharapkan:
+- **Menjawab Problem Statement:** Model Random Forest mampu mempercepat proses diagnosis dengan akurasi yang tinggi, sehingga mendukung deteksi dini kanker payudara dan mengurangi kesalahan diagnosis.  
+- **Mencapai Goals:**  
+  - **Efisiensi Diagnosis:** Dengan akurasi lebih dari 97%, model ini memungkinkan diagnosis yang cepat dan andal.  
+  - **Peningkatan Kualitas Perawatan:** Akurasi dan nilai evaluasi tinggi mendukung keputusan medis yang lebih tepat, berpotensi meningkatkan outcome perawatan pasien.  
+  - **Optimalisasi Biaya Operasional:** Penggunaan model ini dapat mengurangi waktu dan sumber daya yang diperlukan untuk proses diagnosis manual, sehingga memberikan dampak positif pada pengurangan biaya operasional.  
+- **Dampak Solusi:** Implementasi model Random Forest diharapkan memberikan kontribusi signifikan dalam meningkatkan efektivitas layanan kesehatan dengan mengoptimalkan proses diagnosis, yang secara langsung dapat menurunkan angka kematian dan meningkatkan kualitas hidup pasien.
+
+Secara keseluruhan, evaluasi menunjukkan bahwa model Random Forest tidak hanya unggul dalam performa teknis tetapi juga memiliki dampak positif yang jelas terhadap kebutuhan dan tujuan bisnis dalam diagnosis kanker payudara.
 **---Ini adalah bagian akhir laporan---**
