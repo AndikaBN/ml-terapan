@@ -241,7 +241,7 @@ Setelah pelatihan awal, dilakukan hyperparameter tuning untuk setiap model guna 
 
 ## Evaluation
 Pada proyek ini, model yang dikembangkan adalah kasus klasifikasi dan menggunakan metriks akurasi, *f1-score*, *recall* dan *precision*. Berikut hasil pengukuran model yang dipilih yaitu model yang menggunakan algoritma Random Forest metriks akurasi, _f1-score_, _recall_ dan _precision_.
-![RF](https://i.postimg.cc/cLM5KQsY/image.png)
+![RF](https://i.postimg.cc/d1tp88yV/Cuplikan-layar-2025-03-01-151435.png)
 * Akurasi
     Akurasi merupakan metrik untuk menghitung persentase dari total data yang diidentifikasi dan dinilai benar. Rumus akurasi sebagai berikut:
     ![Image of Dataset](https://i.postimg.cc/NFx1VcgJ/akurasi.png)
