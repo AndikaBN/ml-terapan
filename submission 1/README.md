@@ -1,46 +1,41 @@
 # Laporan Proyek Machine Learning - Andika Bintang Nursalih
 
-## 1. Domain Proyek  
+## Domain Proyek
 
-Kanker payudara merupakan salah satu penyakit yang dapat berakibat fatal, terutama jika tidak terdeteksi sejak dini. Penyakit ini terjadi akibat pertumbuhan sel abnormal yang berasal dari kelenjar susu di payudara. Perkembangannya disebabkan oleh pembelahan sel yang lebih cepat dari normal, di mana sel-sel lama pada duktus lactiferi tidak mati dan terus digantikan oleh sel-sel baru yang tumbuh secara tidak terkendali. Akibatnya, sel-sel ini dapat menginvasi jaringan sehat di sekitarnya [[1](http://repository.uhn.ac.id/handle/123456789/4689)].  
+Kanker payudara merupakan salah satu penyakit yang dapat berakibat fatal, terutama jika tidak terdeteksi sejak dini. Penyakit ini terjadi akibat pertumbuhan sel abnormal yang berasal dari kelenjar susu di payudara. Perkembangannya disebabkan oleh pembelahan sel yang lebih cepat dari normal, di mana sel-sel lama pada duktus lactiferi tidak mati dan terus digantikan oleh sel-sel baru yang tumbuh secara tidak terkendali. Akibatnya, sel-sel ini dapat menginvasi jaringan sehat di sekitarnya.  
+Menurut International Agency for Research on Cancer (IARC), jumlah kasus kanker di dunia terus meningkat setiap tahunnya. Pada tahun 2008, terdapat 12,7 juta kasus kanker yang dilaporkan, dan angka ini terus bertambah hingga mencapai 18,1 juta kasus pada tahun 2018. Tidak hanya jumlah kasus, angka kematian akibat kanker juga meningkat dari 7,6 juta pada tahun 2008 menjadi 9,6 juta pada tahun 2018.  
+Khusus untuk kanker payudara, data dari IARC menunjukkan bahwa penyakit ini banyak menyerang wanita, dengan tingkat kematian mencapai 627.000 kasus di seluruh dunia pada tahun 2018. Di Indonesia, berdasarkan data Riset Kesehatan Dasar (RISKESDAS) tahun 2018, insiden kanker payudara tercatat sebesar 42,1 per 100.000 penduduk dengan angka kematian rata-rata 17 per 100.000 penduduk. Angka ini meningkat dibandingkan tahun 2012, di mana insiden kanker payudara hanya sebesar 12,1 per 100.000 penduduk dengan total kematian 522.000 jiwa.  
+Meningkatnya angka kejadian kanker payudara menunjukkan pentingnya kesadaran akan deteksi dini dan pengobatan yang lebih efektif. Oleh karena itu, pengembangan model machine learning menjadi solusi yang dapat membantu dokter dalam mengidentifikasi kanker payudara lebih awal. Model ini bertujuan untuk memprediksi apakah seseorang yang terdiagnosis kanker payudara memiliki jenis kanker yang ganas atau jinak. Dengan adanya model ini, diharapkan proses diagnosis menjadi lebih cepat dan akurat, sehingga memungkinkan intervensi medis lebih dini. 
 
-Menurut International Agency for Research on Cancer (IARC), jumlah kasus kanker di dunia terus meningkat setiap tahunnya. Pada tahun 2008, terdapat 12,7 juta kasus kanker yang dilaporkan, dan angka ini terus bertambah hingga mencapai 18,1 juta kasus pada tahun 2018 [[2](http://repository.uhn.ac.id/handle/123456789/4689)]. Tidak hanya jumlah kasus, angka kematian akibat kanker juga meningkat dari 7,6 juta pada tahun 2008 menjadi 9,6 juta pada tahun 2018.  
+  Format Referensi: [Hubungan Tingkat Pengetahuan Mengenai Kanker Payudara dengan Upaya Pencegahan dengan Pemeriksaan Payudara Sendiri pada Wanita Usia Subur di Puskesmas Rantau Laban Kota Tebing Tinggi](http://repository.uhn.ac.id/handle/123456789/4689) 
+  Format Referensi: [GAMBARAN KUALITAS HIDUP PASIEN KANKER PAYUDARA](http://repo.poltekkesbandung.ac.id/1505/) 
 
-Khusus untuk kanker payudara, data dari IARC menunjukkan bahwa penyakit ini banyak menyerang wanita, dengan tingkat kematian mencapai 627.000 kasus di seluruh dunia pada tahun 2018. Di Indonesia, berdasarkan data Riset Kesehatan Dasar (RISKESDAS) tahun 2018, insiden kanker payudara tercatat sebesar 42,1 per 100.000 penduduk dengan angka kematian rata-rata 17 per 100.000 penduduk. Angka ini meningkat dibandingkan tahun 2012, di mana insiden kanker payudara hanya sebesar 12,1 per 100.000 penduduk dengan total kematian 522.000 jiwa [[3](http://repo.poltekkesbandung.ac.id/1505/)].  
+## Business Understanding
 
-Meningkatnya angka kejadian kanker payudara menunjukkan pentingnya kesadaran akan deteksi dini dan pengobatan yang lebih efektif. Oleh karena itu, pengembangan model machine learning menjadi solusi yang dapat membantu dokter dalam mengidentifikasi kanker payudara lebih awal. Model ini bertujuan untuk memprediksi apakah seseorang yang terdiagnosis kanker payudara memiliki jenis kanker yang ganas atau jinak. Dengan adanya model ini, diharapkan proses diagnosis menjadi lebih cepat dan akurat, sehingga memungkinkan intervensi medis lebih dini.  
+### Problem Statements
 
-### **Referensi Terkait:**  
-- [Breast Cancer Detection Research](https://www.sciencedirect.com/science/article/abs/pii/S0933365722000410) – Studi tentang penerapan machine learning dalam diagnosis kanker payudara.  
-- [Early Detection of Breast Cancer](https://repository.uhn.ac.id/handle/123456789/4689) – Penelitian mengenai pentingnya deteksi dini dan pengaruhnya terhadap tingkat kesembuhan pasien.
-
---- 
-
-## Business Understanding  
-
----  
-### **Problem Statements**  
 Berdasarkan latar belakang di atas, berikut ini rumusan masalah yang dapat diselesaikan pada proyek ini:  
 
 - Bagaimana cara melakukan pra-pemrosesan pada data penyakit kanker payudara yang akan digunakan untuk membuat model yang baik?  
 - Bagaimana cara membuat model untuk memprediksi penyakit kanker payudara ganas atau jinak pada manusia dengan menggunakan machine learning?  
 - Bagaimana cara memilih/membuat algoritma yang mampu menghasilkan nilai akurasi di atas 90%?  
 
-### **Goals**  
+### Goals
+
 - Melakukan pra-pemrosesan dengan baik agar dapat digunakan dalam pembuatan model.  
 - Mengetahui cara membuat model machine learning untuk memprediksi penyakit kanker payudara ganas dan jinak pada wanita.  
 - Membuat model machine learning dengan nilai akurasi yang mencapai 90%.  
 
-### **Solution Statements**  
-Solusi yang dapat dilakukan untuk memenuhi tujuan dari proyek ini di antaranya:  
-* Untuk pra-pemrosesan data dapat dilakukan beberapa teknik, di antaranya:  
+    ### Solution statements
+    Solusi yang dapat dilakukan untuk memenuhi tujuan dari proyek ini di antaranya:  
+    * Untuk pra-pemrosesan data dapat dilakukan beberapa teknik, di antaranya:  
     * Melakukan _drop_ kolom pada kolom ID.  
     * Mengatasi masalah data yang kosong dengan melakukan pengecekan terlebih dahulu lalu menggantinya dengan nilai rata-rata atau median (dalam proyek ini, tidak ditemukan data yang kosong).  
     * Melakukan encoding terhadap kolom yang bertipe _object_.  
     * Membagi dataset menjadi dua bagian dengan rasio 80% untuk data latih dan 20% untuk data uji.  
     * Melakukan _Standard Scaler_.  
 
-* Untuk pembuatan model dipilih penggunaan model dengan algoritma Random Forest dan K-Nearest Neighbor. Algoritma tersebut dipilih karena mudah digunakan dan cocok untuk kasus ini. Berikut cara kerja, kelebihan, dan kekurangan dari kedua algoritma:  
+    * Untuk pembuatan model dipilih penggunaan model dengan algoritma Random Forest dan K-Nearest Neighbor. Algoritma tersebut dipilih karena mudah digunakan dan cocok untuk kasus ini. Berikut cara kerja, kelebihan, dan kekurangan dari kedua algoritma:  
     * **Cara kerja Algoritma Random Forest** [[4]](https://repository.usd.ac.id/35513/):  
         * Memilih k sampel dataset secara acak dengan pengembalian.  
         * Menggunakan dataset untuk membangun _decision tree_ ke-i.  
@@ -60,10 +55,8 @@ Solusi yang dapat dilakukan untuk memenuhi tujuan dari proyek ini di antaranya:
             * Pemilihan jarak dan atribut yang optimal tidak selalu jelas.  
             * Biaya komputasi tinggi karena perlu menghitung jarak setiap sampel uji ke seluruh sampel latih.
 
----
 
-# Data Understanding
----
+## Data Understanding
 ![kaggle](https://i.postimg.cc/2SyPvwxP/image.png)
 Data pada project ini menggunakan data yang bersumber pada sebuah situs kaggle, dimana fokus pada data tersebut menjelaskan faktor-faktor yang akan mempengaruhi sebuah penyakit kanker payudara bersifat ganas dan jinak.
 Informasi dataset dapat dilihat pada tabel dibawah ini :
@@ -123,10 +116,7 @@ Berikut beberapa tahapan visualisasi data pada data preparation:
 - Selanjutnya visualisasi dilakukan untuk mengetahui korelasi antar fitur yg terdapat pada dataset, untuk selengkapnya sebagai berikut:
 ![img](https://i.ibb.co/2gg4qvP/image.png)
 
----
-
-## 4. Data Preparation
-
+## Data Preparation
 Tahapan data preparation dilakukan secara berurutan untuk memastikan data siap digunakan dalam pemodelan:
 
 1. **Pembersihan Data:**  
@@ -173,14 +163,9 @@ Tahapan data preparation dilakukan secara berurutan untuk memastikan data siap d
    X_train_scaled = scaler.fit_transform(X_train)
    X_test_scaled = scaler.transform(X_test)
    ```
-
-**Alasan Tahapan:**  
 Tahapan di atas dilakukan untuk memastikan bahwa model tidak bias karena perbedaan skala antar fitur dan untuk menangani data yang tidak konsisten.
 
----
-
-## 5. Modeling
-
+## Modeling
 Dalam tahap pemodelan, tiga algoritma digunakan untuk mengklasifikasikan data:
 
 ### Random Forest
@@ -254,44 +239,28 @@ plt.show()
 **Improvement Model:**  
 Setelah pelatihan awal, dilakukan hyperparameter tuning untuk setiap model guna mendapatkan performa optimal. Perbandingan metrik evaluasi kemudian digunakan untuk memilih model terbaik.
 
----
+## Evaluation
+Pada proyek ini, model yang dikembangkan adalah kasus klasifikasi dan menggunakan metriks akurasi, *f1-score*, *recall* dan *precision*. Berikut hasil pengukuran model yang dipilih yaitu model yang menggunakan algoritma Random Forest metriks akurasi, _f1-score_, _recall_ dan _precision_.
+![RF](https://i.postimg.cc/cLM5KQsY/image.png)
+* Akurasi
+    Akurasi merupakan metrik untuk menghitung persentase dari total data yang diidentifikasi dan dinilai benar. Rumus akurasi sebagai berikut:
+    ![Image of Dataset](https://i.postimg.cc/NFx1VcgJ/akurasi.png)
+    * _True Positive_ (TP):
+    Kasus dimana model merupakan data positif yang diprediksi benar. Contohnya, pasien menderita kanker (class 1) dan dari model yang dibuat memprediksi pasien tersebut menderita kanker (class 1).
+    * _True Negative_ (TN):
+    Kasus dimana model merupakan data negatif yang diprediksi benar. Contohnya, pasien tidak menderita kanker (class 2) dan dari model yang dibuat memprediksi pasien tersebut tidak menderita kanker (class 2).
+    * _False Positive_ (FP) - **Type I Error** :
+    Kasus dimana model merupakan data negatif namun diprediksi sebagai data positif. Contohnya, pasien tidak menderita kanker (class 2) tetapi dari model yang telah memprediksi pasien tersebut menderita kanker (class 1).
+    * _False Negative_ (FN) - **Type II Error** :
+    Kasus dimana model merupakan data negatif namun diprediksi sebagai data positif. Contohnya, pasien tidak menderita kanker (class 2) tetapi dari model yang telah memprediksi pasien tersebut menderita kanker (class 1).
+* _Precision_
+    _Precision_ merupakan metrik untuk memprediksi benar positif dari keseluruhan hasil yang diprediksi positf. Rumus _precision_ sebagai berikut:
+    ![Image of Dataset](https://i.postimg.cc/mzwZLjdM/precision.png)
+* _Recall_
+    _Recall_ merupakan metrik untuk memprediksi benar positif dibandingkan dengan keseluruhan data yang benar positif. Rumus _precision_ sebagai berikut:
+    ![Image of Dataset](https://i.postimg.cc/K38GRTVW/recall.png)
+* _f1-score_
+    _f1-score_ merupakan metrik untuk perbandingan rata-rata precision dan recall yang dibobotkan. Rumus _f1-score_ sebagai berikut:
+    ![Image of Dataset](https://i.postimg.cc/Fzm9ztjQ/f1-score.png)
 
-## 6. Evaluation
-
-Evaluasi model dilakukan dengan menggunakan beberapa metrik utama:
-
-- **Accuracy:**  
-  Mengukur persentase prediksi yang benar.  
-  **Formula:**  
-  `Accuracy = (TP + TN) / (TP + TN + FP + FN)`
-
-- **Precision:**  
-  Mengukur seberapa tepat prediksi positif.  
-  **Formula:**  
-  `Precision = TP / (TP + FP)`
-
-- **Recall:**  
-  Mengukur kemampuan model menangkap semua sampel positif.  
-  **Formula:**  
-  `Recall = TP / (TP + FN)`
-
-- **F1-Score:**  
-  Rata-rata harmonis dari precision dan recall.  
-  **Formula:**  
-  `F1 = 2 * (Precision * Recall) / (Precision + Recall)`
-
-### Hasil Evaluasi
-
-Tabel berikut menunjukkan hasil evaluasi untuk masing-masing model:
-
-| Model           | Accuracy   | Precision (0) | Recall (0) | F1-Score (0) | Precision (1) | Recall (1) | F1-Score (1) |
-|-----------------|------------|---------------|------------|--------------|---------------|------------|--------------|
-| **RandomForest**| 0.973684   | 0.956522      | 0.937500   | 0.977778     | 0.967742      | 0.937500   | *(Detail)*   |
-| **KNN**         | 0.964912   | 0.942857      | 0.916667   | 0.970588     | 0.956522      | 0.916667   | *(Detail)*   |
-| **Boosting**    | 0.973684   | 0.956522      | 0.937500   | 0.977778     | 0.967742      | 0.937500   | *(Detail)*   |
-
-*(Sisipkan tabel evaluasi lengkap dan grafik perbandingan performa di sini jika ada.)*
-
-### Interpretasi Hasil
-- **RandomForest** dan **Boosting** menunjukkan nilai akurasi tertinggi (0.973684) dan memiliki performa yang sangat baik secara keseluruhan.  
-- **KNN** memiliki akurasi sedikit lebih rendah (0.964912), sehingga model RandomForest dan Boosting menjadi kandidat utama untuk implementasi solusi.
+**---Ini adalah bagian akhir laporan---**
