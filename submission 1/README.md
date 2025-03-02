@@ -80,11 +80,11 @@ Berikut beberapa tahapan sebelum visualisasi data pada data preparation sebagai 
 Berikut beberapa tahapan visualisasi data pada data preparation:
 - Pertama membagi dataset kedalam 2 bentuk variable, yaitu variable untuk kolom tipe numerik dan variable kolom untuk tipe object
 - Kemudian melakukan visualisasi distribusi categorial, dimana ini digunakan untuk menghitung jumlah sample Kanker Ganas/positif (M) dan kanker Jinak/negatif (B). pada project ini terdapat 357 jumlah data sampel kanker jinak (B) dan 212 data sample kanker ganas (M)
-![img](https://i.postimg.cc/SRf5411z/image.png)
+![img](https://i.postimg.cc/3JBdFYGt/Cuplikan-layar-2025-03-02-115126.png)
 - lalu melakukan visualisasi distribusi numerik, yg dapat dilihat lebih rinci sebagai berikut:
-![img](https://i.postimg.cc/Bvyf7zRS/image.png)
+![img](https://i.postimg.cc/d073FCxf/Cuplikan-layar-2025-03-01-172153.png)
 - Selanjutnya visualisasi dilakukan untuk mengetahui korelasi antar fitur yg terdapat pada dataset, untuk selengkapnya sebagai berikut:
-![img](https://i.ibb.co/2gg4qvP/image.png)
+![img](https://i.postimg.cc/GpZ2m20m/Cuplikan-layar-2025-03-01-171239.png)
 
 ## Data Preparation
 Tahapan data preparation dilakukan secara berurutan untuk memastikan data siap digunakan dalam pemodelan:
