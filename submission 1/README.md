@@ -27,7 +27,7 @@ Di sektor kesehatan, terutama dalam diagnosis kanker payudara, deteksi dini sang
 
 
 ## Data Understanding
-![kaggle](https://i.postimg.cc/2SyPvwxP/image.png)
+![kaggle](https://github.com/user-attachments/assets/3b7ce943-82ac-4f69-918f-050a9015d5d8)
 Data pada project ini menggunakan data yang bersumber pada sebuah situs kaggle, dimana fokus pada data tersebut menjelaskan faktor-faktor yang akan mempengaruhi sebuah penyakit kanker payudara bersifat ganas dan jinak.
 Informasi dataset dapat dilihat pada tabel dibawah ini :
 Jenis | Keterangan
@@ -80,11 +80,14 @@ Berikut beberapa tahapan sebelum visualisasi data pada data preparation sebagai 
 Berikut beberapa tahapan visualisasi data pada data preparation:
 - Pertama membagi dataset kedalam 2 bentuk variable, yaitu variable untuk kolom tipe numerik dan variable kolom untuk tipe object
 - Kemudian melakukan visualisasi distribusi categorial, dimana ini digunakan untuk menghitung jumlah sample Kanker Ganas/positif (M) dan kanker Jinak/negatif (B). pada project ini terdapat 357 jumlah data sampel kanker jinak (B) dan 212 data sample kanker ganas (M)
-![img](https://i.postimg.cc/3JBdFYGt/Cuplikan-layar-2025-03-02-115126.png)
+![distribusi diagnosis](https://github.com/user-attachments/assets/4cfbdc9c-b214-4480-89af-b45a6895c83f)
+
 - lalu melakukan visualisasi distribusi numerik, yg dapat dilihat lebih rinci sebagai berikut:
-![img](https://i.postimg.cc/d073FCxf/Cuplikan-layar-2025-03-01-172153.png)
+![Cuplikan layar 2025-03-01 172153](https://github.com/user-attachments/assets/e6f683fc-a2fd-4174-88ee-1546a8e0a50b)
+
 - Selanjutnya visualisasi dilakukan untuk mengetahui korelasi antar fitur yg terdapat pada dataset, untuk selengkapnya sebagai berikut:
-![img](https://i.postimg.cc/GpZ2m20m/Cuplikan-layar-2025-03-01-171239.png)
+![Cuplikan layar 2025-03-01 171239](https://github.com/user-attachments/assets/fa9c2871-2821-4d19-8695-a9b8878a7ea8)
+
 
 ## Data Preparation
 Tahapan data preparation dilakukan secara berurutan untuk memastikan data siap digunakan dalam pemodelan:
