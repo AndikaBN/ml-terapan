@@ -166,7 +166,7 @@ print("Akurasi Random Forest:", accuracy_score(y_test, RF_pred))
 print(classification_report(y_test, RF_pred))
 ```
 
-![img](https://i.postimg.cc/6pdJxJGk/Cuplikan-layar-2025-02-28-184328.png)
+![random forest](https://github.com/user-attachments/assets/5c132569-df97-4bb8-9945-105e808d80f7)
 
 ### K-Nearest Neighbors (KNN)
 - **Deskripsi:**  
@@ -186,7 +186,7 @@ plt.title("Confusion Matrix - KNN")
 plt.show()
 ```
 
-![img](https://i.postimg.cc/mD96C7N0/Cuplikan-layar-2025-02-28-191351.png)
+![knn](https://github.com/user-attachments/assets/290c0bc1-128a-43e0-9786-6bacaa03de4d)
 
 ### Boosting (Menggunakan AdaBoost)
 - **Deskripsi:**  
@@ -206,8 +206,8 @@ sns.heatmap(cm_boost, annot=True, fmt="d", cmap="Oranges")
 plt.title("Confusion Matrix - Boosting")
 plt.show()
 ```
-  
-![img](https://i.postimg.cc/8C6b0NJv/Cuplikan-layar-2025-02-28-191821.png)
+
+![boosting](https://github.com/user-attachments/assets/42c538d0-8991-45ce-b084-c81395bfe329)
 
 **Improvement Model:**  
 Setelah pelatihan awal, dilakukan hyperparameter tuning untuk setiap model guna mendapatkan performa optimal. Perbandingan metrik evaluasi kemudian digunakan untuk memilih model terbaik.
