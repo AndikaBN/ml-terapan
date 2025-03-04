@@ -68,7 +68,7 @@ Proyek ini menggunakan dua *dataset* utama, yaitu **dataset makanan** dan **data
 4. **Distribusi Kategori Makanan**  
    Melalui perintah `df_makanan['C_Type'].value_counts().sort_values().plot(kind='barh')`, dihasilkan visualisasi gambar di bawah ini yang menunjukkan jumlah makanan pada setiap kategori. Dapat diamati bahwa **Indian**, **Healthy Food**, dan **Dessert** menjadi kategori terbanyak pada dataset ini.
 
-   ![Cuplikan layar 2025-03-04 213152](https://github.com/user-attachments/assets/90d0adc7-c2ca-4916-a2bd-d3acaaaa4b9f)
+![img1](https://github.com/user-attachments/assets/3170ebc2-e099-408a-a90d-694b70c091cb)
 
 ### 2. Dataset Rating
 
@@ -98,13 +98,10 @@ Proyek ini menggunakan dua *dataset* utama, yaitu **dataset makanan** dan **data
    - **Food_ID**: Kode unik makanan yang dirujuk (sesuai dengan *Food_ID* pada dataset makanan).  
    - **Rating**: Nilai penilaian yang diberikan oleh pengguna, umumnya dalam skala 1 hingga 10.
 
-4. **Proses Penggabungan & *Missing Value***  
-   Untuk menggabungkan dataset rating dengan informasi makanan, dilakukan *merge* pada kolom `Food_ID`. Hasilnya disimpan dalam `df_gabungan`. Ketika dicek menggunakan `df_gabungan.isnull().sum()`, ditemukan bahwa terdapat **1 baris** yang *missing* di semua kolom (*User_ID*, *Food_ID*, *Rating*, *Name*, dan *C_Type*). Baris tersebut kemudian dihapus menggunakan `df_gabungan.dropna()`.
-
-5. **Distribusi Rating**  
+4. **Distribusi Rating**  
    Melalui perintah `sns.displot(df_rating['Rating'], kde=True, bins=10)`, dihasilkan visualisasi gambar di bawah ini yang menunjukkan sebaran rating yang diberikan oleh pengguna. Rating tampak tersebar pada rentang 1–10, dengan beberapa puncak di nilai 3, 5, dan 10.
-
-   ![Cuplikan layar 2025-03-04 213322](https://github.com/user-attachments/assets/b5a25f1a-e3ff-4142-9878-fb748b355777)
+   
+![img2](https://github.com/user-attachments/assets/ae1bfaa4-5162-4228-af7e-12a2cce35164)
 
 ## Data Preparation
 
